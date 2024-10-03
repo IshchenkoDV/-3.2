@@ -3,6 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WpfApp1"
         Title="Графический редактор" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+        <Style TargetType="{x:Type Slider}">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+            <Setter Property="TickPlacement" Value="BottomRight" />
+            <Setter Property="TickFrequency" Value="5" />
+        </Style>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -10,18 +27,14 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Margin="10">
-            <TextBlock Text="Цвет кисти:" Margin="0,0,0,5"/>
+            <TextBlock Text="Цвет кисти:" />
             <ComboBox x:Name="ColorPicker" 
-                      SelectionChanged="ColorPicker_SelectionChanged"
-                      Margin="0,0,0,10"/>
-            <TextBlock Text="Размер кисти:" Margin="0,0,0,5"/>
+                      SelectionChanged="ColorPicker_SelectionChanged" />
+            <TextBlock Text="Размер кисти:" />
             <Slider x:Name="BrushSizeSlider"
                     Minimum="1" Maximum="50" Value="10"
-                    TickPlacement="BottomRight"
-                    TickFrequency="5"
-                    ValueChanged="BrushSizeSlider_ValueChanged"
-                    Margin="0,0,0,10"/>
-            <TextBlock Text="Режим работы:" Margin="0,0,0,5"/>
+                    ValueChanged="BrushSizeSlider_ValueChanged" />
+            <TextBlock Text="Режим работы:" />
             <RadioButton x:Name="DrawRadioButton" 
                           GroupName="DrawingMode" 
                           IsChecked="True" 
